@@ -1,2 +1,2 @@
-# Blog-Website
-React-Laravel Blog Website (Frontend)
+# Blog-Website (Frontend)
+# React-Laravel Blog Website (Frontend)
