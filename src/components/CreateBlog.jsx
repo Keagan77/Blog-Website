@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form"
 
 const CreateBlog = () => {
 
-  const [html, setHtml] = useState('my <b>HTML</b>');
+  const [html, setHtml] = useState('');
   function onChange(e) {
     setHtml(e.target.value);
   }
@@ -22,7 +22,8 @@ const CreateBlog = () => {
   } = useForm()
 
   const formSubmit = (data) => {
-
+      const newData = {...data,"description":html}
+      console.log(newData)
   } 
 
   return (
@@ -41,7 +42,9 @@ const CreateBlog = () => {
               <label className="form-label">Title</label>
               <input 
               {...register('title', {required: true})}
-              type="text" className="form-control" placeholder="Name" />
+              type="text" className= { `form-control ${errors.title && 'is-invalid'}`}
+              placeholder="Name" />
+              {errors.title && <p className='invalid-feedback'>Title field is required</p>}
           </div>
 
           <div className="mb-3">
@@ -68,7 +71,9 @@ const CreateBlog = () => {
               <label className="form-label">Author</label>
               <input 
               {...register('author', {required: true})}
-              type="text" className="form-control" placeholder="Author" />
+              type="text" className= { `form-control ${errors.author && 'is-invalid'}`}
+              placeholder="Author" />
+              {errors.author && <p className='invalid-feedback'>Author field is required</p>}
             </div>  
 
             <button className="btn btn-dark">Create</button>
