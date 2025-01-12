@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import Blogs from './components/Blogs';
 import Contact from './components/contact';
 import CreateBlog from './components/CreateBlog';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,10 +23,7 @@ function App() {
       {/* <Route path = "/contact" element = {<Contact/>} /> */}
       <Route path = "/create" element = {<CreateBlog/>} />
     </Routes>
-
-
-        
-
+    <ToastContainer />
     </>
   )
 }
