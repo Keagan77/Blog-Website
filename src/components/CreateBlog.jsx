@@ -1,15 +1,15 @@
-/*
-    Error Handling to be done  vid at 6:43
-*/
-
 import React from 'react'
 import { useState } from 'react';
 import Editor from 'react-simple-wysiwyg';
 import { useForm } from "react-hook-form"
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
 
   const [html, setHtml] = useState('');
+  const navigate = useNavigate();
+
   function onChange(e) {
     setHtml(e.target.value);
   }
@@ -21,9 +21,21 @@ const CreateBlog = () => {
     formState: { errors },
   } = useForm()
 
-  const formSubmit = (data) => {
+  const formSubmit = async(data) => {
       const newData = {...data,"description":html}
-      console.log(newData)
+
+      const res = await fetch("http://localhost:8000/api/blogs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData)
+      });
+
+      toast("Blog Added Successfully");
+
+      navigate('/');
+      // console.log(newData)
   } 
 
   return (
