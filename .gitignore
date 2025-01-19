@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 Contact.jsx
+package-lock.json
+package.json
 .gitignore
