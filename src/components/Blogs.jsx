@@ -29,7 +29,6 @@ const Blogs = () => {
             return (<BlogCard blog = {blog} key = {blog.id} />)
           })
         }
-        
       </div>
     </div>
   );
