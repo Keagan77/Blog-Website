@@ -93,7 +93,7 @@ const CreateBlog = () => {
               <label className='form-label'>Description</label>
               {/* <textarea className='form-control' name="" id="" rows='10' cols='30'></textarea> */}
               <Editor value={html} 
-              containerProps={{ style: { height: '400px' } }}
+              containerProps={{ style: { height: '700px' } }}
               onChange={onChange} />
             </div>
 
