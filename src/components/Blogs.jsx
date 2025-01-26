@@ -8,7 +8,7 @@ const Blogs = () => {
     const res = await fetch('http://localhost:8000/api/blogs');
     const result = await res.json(); // Added 'await' here
     setBlogs(result.data);
-    // console.log(result);
+    // console.log(result); // Test result
   }
 
   useEffect(() => {
